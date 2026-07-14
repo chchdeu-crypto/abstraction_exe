@@ -32,3 +32,25 @@ drone=Dronedelivery()
 drone.delivery(202)
 car=Cardelivery()
 car.delivery(202)
+
+#mission 3
+class DeliveryMethod(ABC):
+    def __init__(self,compeny_name):
+        self.compeny_name=compeny_name
+    @abstractmethod
+    def deliver(self,order_id):
+        pass
+class Bikedelivery(DeliveryMethod):
+    def __init__(self,compeny_name):
+        super().__init__(compeny_name)
+    def deliver(self, order_id):
+        print(f"[{self.compeny_name}] order {order_id} - bike delivery")
+class Dronedelivery(DeliveryMethod):
+    def __init__(self,compeny_name):
+        super().__init__(compeny_name)
+    def deliver(self, order_id):
+        print(f"[{self.compeny_name}] order {order_id} - bike drone")
+bike=Bikedelivery("fedex")
+bike.deliver(303)
+drone=Dronedelivery("amazon")
+drone.deliver(303)
