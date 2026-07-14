@@ -106,4 +106,32 @@ print(Deliveryfee.calc(5,3.0))
 print(Deliveryfee.with_surcherge(15.0,10))
 print(Deliveryfee.is_free(1.5))
 
-        
+#mission 7
+class DeliveryMethod(ABC):
+    @abstractmethod
+    def delivery(self,order_id):
+        pass
+    @abstractmethod
+    def get_ate(self):
+        pass
+class Walkingdelivery(DeliveryMethod):
+    def delivery(self, order_id):
+        return
+    def get_ate(self):
+        return 60
+class Expresdelivery(DeliveryMethod):
+    def delivery(self, order_id):
+        return 
+    def get_ate(self):
+        return 10
+class Deliveryhelper:
+    @staticmethod
+    def faster(d1,d2):
+        if d1.get_ate()>d2.get_ate():
+            return d2
+        else:
+            return d1
+walk=Walkingdelivery()
+experas=Expresdelivery()
+faster=Deliveryhelper.faster(walk,experas)
+print(f"faster option: {faster.__class__.__name__}")
