@@ -154,4 +154,33 @@ messages=[Pushnotifier(),Whatapp(),Inappnotifier()]
 for message in messages:
     message.send("customer 42","your order is on the way")
 
+#mission 9
+class Restaurant(ABC):
+    @abstractmethod
+    def get_menu(self):
+        pass
+    @abstractmethod
+    def prepare_order(self,item_menu):
+        pass
+class ItalianRestaurant(Restaurant):
+    def get_menu(self):
+        return ["pasta","pizza","tiramisu"]
+    def prepare_order(self, item_menu):
+        print(f"bon appetito! your {item_menu} ")
+class Sushirestaurant(Restaurant):
+    def get_menu(self):
+        return ["maki","nigiri","ramen"]
+    def prepare_order(self, item_menu):
+        print(f"enjoy your japanis {item_menu}")
+class Burgerjoint(Restaurant):
+    def get_menu(self):
+        return ["burger","frice","shake"]
+    def prepare_order(self, item_menu):
+        print(f"grilling your {item_menu}")
+resturants=[ItalianRestaurant(),Sushirestaurant(),Burgerjoint()]
+for r in resturants:
+    print(f"{r.get_menu()}")
+    r.prepare_order("burger")
+
+    
 
