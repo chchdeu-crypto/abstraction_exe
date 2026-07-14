@@ -80,5 +80,17 @@ drone=Dronedelivery()
 drone.delivery(1)
 print(drone.get_data())
 
+#mission 5
+class DeliveryMethod(ABC):
+    @abstractmethod
+    def delivery(self,order_id):
+        pass
+class Brokendelivery(DeliveryMethod):
+    def delivery(self, order_id):
+        print(f"order {order_id} orderd seccsefuly ")
+broken=Brokendelivery()
+broken.delivery(2)
+
+
 
         
