@@ -54,3 +54,31 @@ bike=Bikedelivery("fedex")
 bike.deliver(303)
 drone=Dronedelivery("amazon")
 drone.deliver(303)
+
+#mission 4
+class DeliveryMethod(ABC):
+    @abstractmethod
+    def delivery(self,order_id):
+        pass
+    @abstractmethod
+    def get_data(self):
+        pass
+class Bikedelivery(DeliveryMethod):
+    def delivery(self, order_id):
+        print(f"order {order_id} deliverd by bike")
+    def get_data(self):
+        return 30
+class Dronedelivery(DeliveryMethod):
+    def delivery(self, order_id):
+        print(f"order {order_id} brought to your building by drone")
+    def get_data(self):
+        return 15
+bike=Bikedelivery()
+bike.delivery(1)
+print(bike.get_data())
+drone=Dronedelivery()
+drone.delivery(1)
+print(drone.get_data())
+
+
+        
