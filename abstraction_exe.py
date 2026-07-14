@@ -91,6 +91,19 @@ class Brokendelivery(DeliveryMethod):
 broken=Brokendelivery()
 broken.delivery(2)
 
-
+#mission 6
+class Deliveryfee:
+    @staticmethod
+    def calc(distance_km,rate_per_km):
+        return distance_km*rate_per_km
+    @staticmethod
+    def with_surcherge(base_fee,surcharge_percent):
+        return base_fee*(1+surcharge_percent/100)
+    @staticmethod
+    def is_free(distance_km):
+        return True if distance_km<=2.0 else False
+print(Deliveryfee.calc(5,3.0))
+print(Deliveryfee.with_surcherge(15.0,10))
+print(Deliveryfee.is_free(1.5))
 
         
