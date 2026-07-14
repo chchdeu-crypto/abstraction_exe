@@ -49,7 +49,7 @@ class Dronedelivery(DeliveryMethod):
     def __init__(self,compeny_name):
         super().__init__(compeny_name)
     def deliver(self, order_id):
-        print(f"[{self.compeny_name}] order {order_id} - bike drone")
+        print(f"[{self.compeny_name}] order {order_id} - by drone")
 bike=Bikedelivery("fedex")
 bike.deliver(303)
 drone=Dronedelivery("amazon")
@@ -135,3 +135,23 @@ walk=Walkingdelivery()
 experas=Expresdelivery()
 faster=Deliveryhelper.faster(walk,experas)
 print(f"faster option: {faster.__class__.__name__}")
+
+#mission 8
+class Notifier(ABC):
+    @abstractmethod
+    def send(self,recipinet,message):
+        pass
+class Pushnotifier(Notifier):
+    def send(self, recipinet, message):
+        print(f"push to {recipinet}: {message}")
+class Whatapp(Notifier):
+    def send(self, recipinet, message):
+        print(f"whatsapp to {recipinet}: {message}")
+class Inappnotifier(Notifier):
+    def send(self, recipinet, message):
+        print(f"in app banner for {recipinet}: {message}")
+messages=[Pushnotifier(),Whatapp(),Inappnotifier()]
+for message in messages:
+    message.send("customer 42","your order is on the way")
+
+
